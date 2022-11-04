@@ -7,8 +7,8 @@ const routes: Routes = [
     loadChildren: () => import('./mant-cliente/mant-cliente.module').then(x => x.MantClienteModule)
   },
   {
-    path:'empleado',
-    loadChildren: () => import('./mant-empleado/mant-empleado.module').then(x => x.MantEmpleadoModule)
+    path:'proveedor',
+    loadChildren: () => import('./mant-proveedor/mant-proveedor.module').then(x => x.MantProveedorModule)
   }
 ];
 
