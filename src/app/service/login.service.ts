@@ -1,12 +1,13 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
+import { urlBack } from '../constantes/url.constants';
 import { LoginRequestModel } from '../models/common/login-request.model';
 
 @Injectable({
   providedIn: 'root'
 })
 export class LoginService {
-  url: string = "https://localhost:7048/api/Auth";
+  url: string = urlBack.login;
   constructor(
     protected http: HttpClient,
   ) { }

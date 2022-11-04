@@ -3,10 +3,6 @@
     <!-- iniciando seccion filtro -->
     <div class="row">
         <div class="col-2">
-            <div class="form-group">
-                <label for="">Código</label>
-                <input class="form-control" formControlName="idcliente" type="text">
-            </div>
             <label for="">Tipo Persona</label>
             <select class="form-select">
                 <option value="null">Todos</option>
@@ -51,7 +47,6 @@
                 <table class="table text-center table-bordered table-hover">
                     <thead>
                         <tr class="table-info">
-                            <th>Código</th>
                             <th>Tipo Persona</th>
                             <th>Nombre</th>
                             <th>Tipo Doc</th>
@@ -67,7 +62,6 @@
                     </thead>
                     <tbody>
                         <tr *ngFor="let item of clientes">
-                            <td>{{item.idcliente}}</td>
                             <td>{{item.tipoPersona}}</td>
                             <td>{{item.nombre}}</td>
                             <td>{{item.tipoDocumento}}</td>

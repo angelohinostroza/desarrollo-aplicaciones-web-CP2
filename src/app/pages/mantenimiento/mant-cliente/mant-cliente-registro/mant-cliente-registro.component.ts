@@ -23,20 +23,21 @@ export class MantClienteRegistroComponent implements OnInit {
   ) {
 
     this.formularioCliente = this.fb.group({
-      idcliente: [{ value: null, disabled: true }],
+      idcliente: [{ value: null, disabled: true}, [Validators.required]],
       tipoPersona: [null, [Validators.required]],
-      nombre: [null, [Validators.required]],
+      nombre: [null, [Validators.required,]],
       tipoDocumento: [null, [Validators.required]],
-      numDocumento: [null, [Validators.maxLength(15), Validators.minLength(8)]],
+      numDocumento: [null, [Validators.required, Validators.maxLength(12), Validators.minLength(8),Validators.pattern(/^([0-9])*$/)]],
       direccion: [null, [Validators.required]],
-      distrito: [null, [Validators.required]],
-      departamento: [null, [Validators.required]],
-      email: [null, [Validators.email]],
-      telefono: [null, [Validators.required]],
+      distrito: [null, [Validators.required, Validators.pattern(/^[A-Za-z\s\xF1\xD1]+$/)]],
+      departamento: [null, [Validators.required,Validators.pattern(/^[A-Za-z\s\xF1\xD1]+$/)]],
+      email: [null, [Validators.email,]],
+      telefono: [null, [Validators.required, Validators.pattern(/^([0-9])*$/),Validators.maxLength(9), Validators.minLength(5),]],
       estado: [null, [Validators.required]]
     });
   }
 
+  get f() { return this.formularioCliente.controls; }
   ngOnInit(): void {
 
     this.formularioCliente.patchValue(this.cliente);
@@ -53,7 +54,7 @@ export class MantClienteRegistroComponent implements OnInit {
     console.log(formData);
     
     debugger;
-    if(formData.idcliente && formData.idcliente === 0)
+    if(formData.idcliente  == 0)
     {
       //crear un registro
       this.crearRegistro(formData)

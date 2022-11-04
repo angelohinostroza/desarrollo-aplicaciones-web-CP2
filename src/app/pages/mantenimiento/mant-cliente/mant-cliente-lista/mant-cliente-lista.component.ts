@@ -2,6 +2,7 @@ import { Component, OnInit, TemplateRef } from '@angular/core';
 import { ClienteModel } from 'src/app/models/common/cliente.model';
 import { ClienteService } from 'src/app/service/cliente.service';
 import { BsModalService, BsModalRef } from 'ngx-bootstrap/modal';
+import { bsConfigModal } from 'src/app/constantes/modal.constants';
 
 @Component({
   selector: 'app-mant-cliente-lista',
@@ -55,13 +56,11 @@ export class MantClienteListaComponent implements OnInit {
   }
 
   openModal(template: TemplateRef<any>) {
-    let config = {
-      backdrop: true,
-      ignoreBackdropClick: true
-    };
-   // this.modalRef = this.modalService.show(template);
-    this.modalRef = this.modalService.show(template, Object.assign({}, { class: 'gray modal-lg'
-     }, config));
+    this.modalRef =
+      this.modalService.show(
+        template,
+        Object.assign({}, { class: "gray modal-xl" },
+          bsConfigModal));
 
   }
 
