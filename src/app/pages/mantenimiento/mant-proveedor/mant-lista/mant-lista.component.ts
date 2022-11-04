@@ -5,7 +5,7 @@ import { Component, OnInit } from '@angular/core';
   templateUrl: './mant-lista.component.html',
   styleUrls: ['./mant-lista.component.scss']
 })
-export class MantEmpleadoListaComponent implements OnInit {
+export class MantProveedorListaComponent implements OnInit {
 
   constructor() { }
 
