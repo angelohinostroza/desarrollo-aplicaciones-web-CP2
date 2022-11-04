@@ -9,12 +9,12 @@ export class TemplateSidebarComponent implements OnInit {
 
   lista_menu: any = [
     {
-      name: 'Mantenimiento Persona',
-      url: 'mantenimiento/persona'
+      name: 'Mantenimiento Cliente',
+      url: 'mantenimiento/cliente'
     },
     {
-      name: 'Mantenimiento Empleado',
-      url: 'mantenimiento/empleado'
+      name: 'Mantenimiento Proveedor',
+      url: 'mantenimiento/proveedor'
     },
   ]
   constructor() { }

@@ -1,0 +1,13 @@
+.tbl-fixed{
+    overflow-y: scroll;
+    overflow-x: scroll;
+    height: fit-content;
+    max-height: 85vh;
+}
+th{
+    position: sticky;
+    top: 0px;
+}
+table{
+    min-width: max-content;   
+}

@@ -1,1 +1,121 @@
-<p>mant-registro works!</p>
+<div class="modal-header">
+    <h4 class="modal-title pull-left">{{titulo}}</h4>
+    <button (click)="cerrarModal(true)" type="button" class="close pull-right" aria-label="Close">
+        <span class="text-danger" aria-hidden="true">&times;</span>
+    </button>
+
+</div>
+<div class="modal-body">
+    <form [formGroup]="formularioProveedor" class="">
+        <div class="row">
+            <div class="col-12">
+                <div class="form-group">
+                    <label for="">Código</label>
+                    <input class="form-control" formControlName="idcliente" type="text">
+                </div>
+                <div class="form-group">
+                    <label for="">Tipo de Persona</label>
+                    <select class="form-select" formControlName="tipoPersona">
+                        <option value="">Seleccione...</option>
+                        <option value="Natural">Natural</option>
+                        <option value="Juridico">Juridico</option>
+                    </select>
+                    <div class="text-danger" *ngIf="f['tipoPersona'].errors && formularioProveedor.touched">
+                        <small *ngIf="f['tipoPersona'].errors['required']" class="text-danger"> Campo Requerido</small>
+                    </div>    
+                </div>
+                <div class="form-group">
+                    <label for="">Nombre</label>
+                    <input class="form-control" formControlName="nombre" type="text">
+                    <div class="text-danger" *ngIf="f['nombre'].errors && formularioProveedor.touched">
+                        <small *ngIf="f['nombre'].errors['required']" class="text-danger"> Campo Requerido</small>
+                    </div>    
+                </div>
+                <div class="form-group">
+                    <label for="">Tipo Documento</label>
+                    <select class="form-select" formControlName="tipoDocumento">
+                        <option value="">Seleccione...</option>
+                        <option value="DNI">DNI</option>
+                        <option value="CE">CE</option>
+                        <option value="RUC">RUC</option>   
+                    </select>
+                    <div class="text-danger" *ngIf="f['tipoDocumento'].errors && formularioProveedor.touched">
+                        <small *ngIf="f['tipoDocumento'].errors['required']" class="text-danger"> Campo Requerido</small>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label for="">Número de documento</label>
+                    <input class="form-control" formControlName="numDocumento" type="text">
+                    <div class="text-danger" *ngIf="f['numDocumento'].errors && formularioProveedor.touched">
+                        <small *ngIf="f['numDocumento'].errors['required']" class="text-danger"> Campo Requerido</small>
+                        <small *ngIf="f['numDocumento'].errors['minlength']" class="text-danger"> Minimo 8 caracteres</small>
+                        <small *ngIf="f['numDocumento'].errors['maxlength']" class="text-danger"> Máximo 12 caracteres</small>
+                        <small *ngIf="f['numDocumento'].errors['pattern']" class="text-danger"> Solo números</small>
+                    </div>    
+                </div>
+                
+                <div class="form-group">
+                    <label for="">Direccion</label>
+                    <input class="form-control" formControlName="direccion" type="text">
+                    <div class="text-danger" *ngIf="f['direccion'].errors && formularioProveedor.touched">
+                        <small *ngIf="f['direccion'].errors['required']" class="text-danger"> Campo Requerido</small>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label for="">Distrito</label>
+                    <input class="form-control" formControlName="distrito" type="text">
+                    <div class="text-danger" *ngIf="f['distrito'].errors && formularioProveedor.touched">
+                        <small *ngIf="f['distrito'].errors['required']" class="text-danger"> Campo Requerido</small>
+                        <small *ngIf="f['distrito'].errors['pattern']" class="text-danger"> Solo letras</small>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label for="">departamento</label>
+                    <input class="form-control" formControlName="departamento" type="text">
+                    <div class="text-danger" *ngIf="f['departamento'].errors && formularioProveedor.touched">
+                        <small *ngIf="f['departamento'].errors['required']" class="text-danger"> Campo Requerido</small>
+                        <small *ngIf="f['departamento'].errors['pattern']" class="text-danger"> Solo letras</small>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label for="">Teléfono</label>
+                    <input class="form-control" formControlName="telefono" type="text">
+                    <div class="text-danger" *ngIf="f['telefono'].errors && formularioProveedor.touched">
+                        <small *ngIf="f['telefono'].errors['required']" class="text-danger"> Campo Requerido</small>
+                        <small *ngIf="f['telefono'].errors['minlength']" class="text-danger"> Minimo 5 caracteres</small>
+                        <small *ngIf="f['telefono'].errors['maxlength']" class="text-danger"> Máximo 9 caracteres</small>
+                        <small *ngIf="f['telefono'].errors['pattern']" class="text-danger"> Solo números</small>
+                    </div>    
+                </div>
+                <div class="form-group">
+                    <label for="">Email</label>
+                    <input class="form-control" formControlName="email" type="text">
+                    <div class="text-danger" *ngIf="f['email'].errors && formularioProveedor.touched">
+                        <small *ngIf="f['email'].errors['required']" class="text-danger"> Campo Requerido</small>
+                        <small *ngIf="f['email'].errors['email']" class="text-danger"> Email debe tener @ y .com</small>
+
+                    </div>
+                </div>
+                
+                <div class="form-group">
+                    <label for="">Estado</label>
+                    <select class="form-select" formControlName="estado">
+                        <option value="">Seleccione...</option>
+                        <option value="Activo">Activo</option>
+                        <option value="Inactivo">Inactivo</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <button (click)="cerrarModal(true)" class="float-right btn btn-danger btn-sm mr-3">
+                        <i class="fas fa-ban"></i> Cancelar
+                    </button>
+                    <button [disabled]="formularioProveedor.invalid" (click)="guardarDatos()" class="float-right btn btn-primary btn-sm mr-2">
+                        <i class="fas fa-save"></i> Guardar
+                    </button>
+                    
+                </div>
+            </div>
+        </div>
+    </form>
+</div>
+

@@ -2,18 +2,23 @@ import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 
 import { MantProveedorRoutingModule } from './mant-proveedor-routing.module';
-import { MantProveedorListaComponent } from './mant-lista/mant-lista.component';
+import { MantListaComponent } from './mant-lista/mant-lista.component';
 import { MantRegistroComponent } from './mant-registro/mant-registro.component';
+import { ModalModule } from 'ngx-bootstrap/modal';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 
 @NgModule({
   declarations: [
-    MantProveedorListaComponent,
+    MantListaComponent,
     MantRegistroComponent
   ],
   imports: [
     CommonModule,
-    MantProveedorRoutingModule
+    MantProveedorRoutingModule,
+    ModalModule.forRoot(),
+    ReactiveFormsModule,
+    FormsModule,
   ]
 })
 export class MantProveedorModule { }
