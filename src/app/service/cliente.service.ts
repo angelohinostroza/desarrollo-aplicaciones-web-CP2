@@ -1,40 +1,40 @@
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
+import { Observable } from 'rxjs';
+import { ClienteModel } from '../models/common/cliente.model';
+import { SessionService } from './session.service';
 
 @Injectable({
   providedIn: 'root'
 })
 export class ClienteService {
 
-  url = "https://localhost:7009/api/"
-
+  private url: string = "https://localhost:7048/api/Cliente/";
   constructor(
-    protected http: HttpClient,
+    private _http: HttpClient,
+    private _sessionService: SessionService
   ) { }
 
-    getAll()
-    {
-      return this.http.get(this.url);
-    }
+  getAll(): Observable<ClienteModel[]> {
+    let token = this._sessionService.getVarSession("token");
+    const reqHeader = new HttpHeaders({
+    'Content-Type': 'application/json',
+    'Authorization': `Bearer ${token}`
+    });
+    // return this._http.get<PersonaModel[]>(this.url, { headers: reqHeader });
+    return this._http.get<ClienteModel[]>(this.url, { headers: reqHeader });
 
-    getById(id:number)
-    {
-      return this.http.get(`${this.url}${id}`);
-    }
-
-    create(request:any)
-    {
-      return this.http.post(this.url, request);
-    }
-
-    update(request:any)
-    {
-      return this.http.put(this.url, request);
-    }
-
-    delete(id:number)
-    {
-      return this.http.delete(`${this.url}${id}`);
-    }
-
+  }
+  create(request: ClienteModel): Observable<ClienteModel> {
+    return this._http.post<ClienteModel>(this.url, request);
+  }
+  update(request: ClienteModel): Observable<ClienteModel> {
+    return this._http.put<ClienteModel>(this.url, request);
+  }
+  delete(idcliente: number) {
+    return this._http.delete(`${this.url}${idcliente}`)
+  }
+  getById(idcliente: number) {
+    return this._http.get(`${this.url}${idcliente}`)
+  }
 }

@@ -3,8 +3,8 @@ import { RouterModule, Routes } from '@angular/router';
 
 const routes: Routes = [
   {
-    path:'persona',
-    loadChildren: () => import('./mant-persona/mant-persona.module').then(x => x.MantPersonaModule)
+    path:'cliente',
+    loadChildren: () => import('./mant-cliente/mant-cliente.module').then(x => x.MantClienteModule)
   },
   {
     path:'empleado',

@@ -1,11 +1,11 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
-import { MantPersonaListaComponent } from './mant-persona-lista/mant-persona-lista.component';
+import { MantClienteListaComponent } from './mant-cliente-lista/mant-cliente-lista.component';
 
 const routes: Routes = [
   {
     path:'',
-    component: MantPersonaListaComponent
+    component: MantClienteListaComponent
   }
 ];
 
@@ -13,4 +13,4 @@ const routes: Routes = [
   imports: [RouterModule.forChild(routes)],
   exports: [RouterModule]
 })
-export class MantPersonaRoutingModule { }
+export class MantClienteRoutingModule { }
