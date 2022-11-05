@@ -24,7 +24,7 @@ export class MantRegistroComponent implements OnInit {
   ) { 
 
     this.formularioProveedor = this.fb.group({
-      iproveedor: [{ value: null, disabled: true}, [Validators.required]],
+      idproveedor: [{ value: null, disabled: true}, [Validators.required]],
       tipoPersona: [null, [Validators.required]],
       nombre: [null, [Validators.required,]],
       tipoDocumento: [null, [Validators.required]],

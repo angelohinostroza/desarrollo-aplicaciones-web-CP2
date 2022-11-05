@@ -16,6 +16,14 @@ export class TemplateSidebarComponent implements OnInit {
       name: 'Mantenimiento Proveedor',
       url: 'mantenimiento/proveedor'
     },
+    {
+      name: 'Mantenimiento Categoria',
+      url: 'mantenimiento/categoria'
+    },
+    {
+      name: 'Mantenimiento Producto',
+      url: 'mantenimiento/producto'
+    },
   ]
   constructor() { }
 

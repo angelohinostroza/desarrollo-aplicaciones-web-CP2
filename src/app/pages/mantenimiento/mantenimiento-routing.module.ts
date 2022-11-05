@@ -9,6 +9,14 @@ const routes: Routes = [
   {
     path:'proveedor',
     loadChildren: () => import('./mant-proveedor/mant-proveedor.module').then(x => x.MantProveedorModule)
+  },
+  {
+    path:'categoria',
+    loadChildren: () => import('./mant-categoria/mant-categoria.module').then(x => x.MantCategoriaModule)
+  },
+  {
+    path:'producto',
+    loadChildren: () => import('./mant-producto/mant-producto.module').then(x => x.MantProductoModule)
   }
 ];
 

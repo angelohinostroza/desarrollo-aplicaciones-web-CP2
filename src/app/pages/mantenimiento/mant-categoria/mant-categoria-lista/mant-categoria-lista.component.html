@@ -1,0 +1,70 @@
+<div class="container-fluid">
+    <h4 class="font-weight-bold"><i class="fas fa-address-book"></i> LISTADO CATEGORIAS</h4> 
+    <!-- iniciando seccion filtro -->
+    <div class="row">
+        <div class="col-3">
+            <label for="">Nombre</label>
+            <input class="form-control" type="text" placeholder="Ingrese Nombre">
+        </div> 
+    </div>
+    <div class="row mt-2">
+        <div class="col-12">
+            <button class="btn btn-sm btn-primary float-right mr-1">
+                <i class="fas fa-search"></i> Buscar
+            </button>
+            <button class="btn btn-sm btn-danger float-right mr-1">
+                <i class="fas fa-broom"></i> Limpiar
+            </button>
+            <button (click)="NuevaCategoria(categoriaregistro)" class="btn btn-success btn-sm">
+                <i class="fas fa-user-plus"> Agregar</i>
+            </button>
+        </div>
+
+    </div>
+    <!-- terminado seccion filtro -->
+
+    <!-- iniciando tabla de contenido -->
+    <div class="row mt-4">
+        <div class="col-12 tbl-fixed">
+            <div>
+                <table class="table text-center table-bordered table-hover">
+                    <thead>
+                        <tr class="table-info">
+                            <th>Id Categoria</th>
+                            <th>Nombre</th>
+                            <th>Condición</th>
+                            <th>Acciones</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr *ngFor="let item of categorias">
+                            <td>{{item.idcategoria}}</td>
+                            <td>{{item.nombre}}</td>
+                            <td>{{item.condicion}}</td>
+                           
+                            <td>
+                                <button 
+                                (click)="editarCategoria(item,categoriaregistro)" class="btn btn-primary btn-sm mr-1">
+                                    <i class="fas fa-edit"></i>
+                                </button>
+                                <button (click)="deleteCategoria(item.idcategoria)" class="btn btn-danger btn-sm mr-1">
+                                    <i class="fas fa-trash"></i>
+                                </button>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+    <!-- terminando tabla de contenido -->
+    <ng-template #categoriaregistro>
+        <app-mant-categoria-registro 
+        [titulo]="tituloModal"
+        [categoria]="categoriaSeleccionada"
+        (closeModalEmit)="recibeFuncionCerrarModal($event)"
+        ></app-mant-categoria-registro>
+    </ng-template>
+    
+</div>
+
