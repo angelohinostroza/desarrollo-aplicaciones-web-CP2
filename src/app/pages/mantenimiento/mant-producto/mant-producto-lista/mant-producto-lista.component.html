@@ -9,8 +9,14 @@
         <div class="col-3">
             <label for="">Nombre Producto</label>
             <input class="form-control" type="text" placeholder="Ingrese nombre">
-        </div> 
+        </div>
+        <div class="col-3">
+            <label for="">Categoria</label>
+            <input class="form-control" type="text" placeholder="categoriaIdcategoria">
+        </div>  
     </div>
+    
+
     <div class="row mt-2">
         <div class="col-12">
             <button class="btn btn-sm btn-primary float-right mr-1">
@@ -46,7 +52,7 @@
                     <tbody>
                         <tr *ngFor="let item of productos">
                             <td>{{item.codigo}}</td>
-                            <td>{{item.nombre}}</td>
+                            <td>{{item.categoriaIdcategoria}}</td>
                             <td>{{item.nombre}}</td>
                             <td>{{item.stock}}</td>
                             <td>{{item.imagen}}</td>

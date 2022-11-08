@@ -10,8 +10,16 @@
         <div class="row">
             <div class="col-12">
                 <div class="form-group">
-                    <label for="">Código</label>
+                    <label for="">Id</label>
                     <input class="form-control" formControlName="idproducto" type="text">
+                </div>
+                <div class="form-group">
+                    <label for="">Código</label>
+                    <input class="form-control" formControlName="codigo" type="text">
+                    <div class="text-danger" *ngIf="f['codigo'].errors && formularioProducto.touched">
+                        <small *ngIf="f['codigo'].errors['pattern']" class="text-danger"> Solo Números</small>
+                        <small *ngIf="f['codigo'].errors['required']" class="text-danger"> Campo Requerido</small>
+                    </div>    
                 </div>
                 <div class="form-group">
                     <label for="">Nombre</label>
@@ -25,14 +33,12 @@
                     <input class="form-control" formControlName="stock" type="text">
                     <div class="text-danger" *ngIf="f['stock'].errors && formularioProducto.touched">
                         <small *ngIf="f['stock'].errors['required']" class="text-danger"> Campo Requerido</small>
-                        <small *ngIf="f['stock'].errors['minlength']" class="text-danger"> Minimo 8 caracteres</small>
-                        <small *ngIf="f['stock'].errors['maxlength']" class="text-danger"> Máximo 12 caracteres</small>
                         <small *ngIf="f['stock'].errors['pattern']" class="text-danger"> Solo números</small>
                     </div>    
                 </div>
                 <div class="form-group">
                     <label for="">Imagen</label>
-                    <input class="form-control" formControlName="imagen" type="image">
+                    <input class="form-control" formControlName="imagen" type="file">
                 <div class="form-group">
                     <label for="">Estado</label>
                     <select class="form-select" formControlName="estado">

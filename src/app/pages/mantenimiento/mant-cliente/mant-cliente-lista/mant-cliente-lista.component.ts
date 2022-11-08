@@ -43,6 +43,10 @@ export class MantClienteListaComponent implements OnInit {
     }, 200);
 
   }
+  filtrar(event: Event) {
+    const filtro = (event.target as HTMLInputElement).value;
+    this.clienteSeleccionado.numDocumento = filtro.trim().toLowerCase();
+  }  
 
   NuevoCliente(template: TemplateRef<any>) {
     this.tituloModal = "Nuevo Cliente";

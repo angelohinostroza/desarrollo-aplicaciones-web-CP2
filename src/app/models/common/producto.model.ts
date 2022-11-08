@@ -1,10 +1,10 @@
 export class ProductoModel {
     idproducto: number;
-    categoriaIdcategoria: number;
     codigo: string;
+    categoriaIdcategoria: number;
     nombre: string;
     stock: number | null;
-    imagen: string | null;
+    imagen: Blob | null;
     estado: string | null;
     //categoriaIdcategoriaNavigation: Categoria | null;
     //detalleIngreso: DetalleIngreso[];
@@ -12,11 +12,11 @@ export class ProductoModel {
 
     constructor(){
         this.idproducto = 0;
-        this.categoriaIdcategoria = 0;
         this.codigo = "";
+        this.categoriaIdcategoria = 0;
         this.nombre = "";
         this.stock = 0;
-        this.imagen = "";
+        this.imagen = new Blob();
         this.estado = "";
     }
 }

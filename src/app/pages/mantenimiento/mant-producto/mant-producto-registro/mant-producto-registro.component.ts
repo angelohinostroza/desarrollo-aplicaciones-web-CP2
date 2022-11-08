@@ -25,7 +25,7 @@ export class MantProductoRegistroComponent implements OnInit {
       idproducto: [{ value: null, disabled: true}, [Validators.required]],
       codigo: [null, [Validators.required, Validators.pattern(/^([0-9])*$/),Validators.maxLength(8), Validators.minLength(8),]],
       nombre: [null, [Validators.required,]],
-      stock: [null, [Validators.required, Validators.pattern(/^([0-9])*$/),Validators.maxLength(8), Validators.minLength(8),]],
+      stock: [null, [Validators.required, Validators.pattern(/^([0-9])*$/),]],
       estado: [null, [Validators.required]]
     });
   }
