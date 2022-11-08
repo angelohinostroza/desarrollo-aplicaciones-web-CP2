@@ -3,8 +3,9 @@ import { BrowserModule } from '@angular/platform-browser';
 import { HttpClient, HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { AuthService } from './interceptor/auth.service';
-import { from } from 'rxjs';
+import { AuthInterceptorService } from './interceptor/auth-interceptor.service';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+
 
 @NgModule({
   declarations: [
@@ -12,11 +13,12 @@ import { from } from 'rxjs';
   ],
   imports: [
     BrowserModule,
+    BrowserAnimationsModule,
     AppRoutingModule,
     HttpClientModule,
   ],
   providers: [
-    { provide: HTTP_INTERCEPTORS, useClass: AuthService, multi: true}
+    { provide: HTTP_INTERCEPTORS, useClass: AuthInterceptorService, multi: true}
   ],
   bootstrap: [AppComponent]
 })

@@ -10,7 +10,7 @@ import { sessionConstant } from '../constantes/session.constants';
 @Injectable({
   providedIn: 'root'
 })
-export class AuthService {
+export class AuthInterceptorService {
 
   constructor(
     private router: Router,
